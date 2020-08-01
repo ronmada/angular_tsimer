@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-toolbar.component.css']
 })
 export class TopToolbarComponent implements OnInit {
-  toolbarlist = ["צימרים","בתי מלון","וילות"]
+  toolbarlist = ["צימרים", "מבצעים", "חוות דעת", "אודותינו", "בתי מלון", "וילות", "אטרקציות"]
   constructor() { }
 
   ngOnInit(): void {
