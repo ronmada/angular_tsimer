@@ -1,6 +1,8 @@
 .grid-top-toolbar {
     display: grid;
-    grid-template-areas: "logo toolbar searcher";
+    grid-template-areas: 
+    "logo toolbar searcher" 
+    ". toolbar-info .";
 }
 
 .item-a-searcher {
@@ -18,11 +20,14 @@
 .item-c-logo {
     grid-area: logo;
 }
-
+.item-d-toolbar-info{
+    grid-area:toolbar-info;
+}
 .img-toolbar img {
     padding: .5em;
 }
 
+/*
 h1 {
     color: #369;
     font-family: Arial, Helvetica, sans-serif;
@@ -73,35 +78,93 @@ button:disabled {
 }
 
 
-/* Navigation link styles */
+
+*/
 
 nav a {
     padding: 5px 10px;
     text-decoration: none;
     margin-right: 10px;
     margin-top: 10px;
-    display: inline-block;
-    /*background-color: #eee;*/
+    /*display: inline-block;
+    background-color: #eee;*/
     border-radius: 4px;
-}
-
-nav a:visited,
-a:link {
-    color: #607D8B;
 }
 
 nav a:hover {
     color: #039be5;
     background-color: #CFD8DC;
+    /*display: block;*/
 }
 
 nav a.active {
     color: #039be5;
 }
 
+.myDIV:hover+.hide {
+    display: block;
+    color: red;
+}
 
-/* everywhere else */
+.hide {
+    display: none;
+}
 
-* {
-    font-family: Arial, Helvetica, sans-serif;
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    display: inline-block;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.subnav {
+    float: left;
+    overflow: hidden;
+}
+
+.subnav .subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: red;
+}
+
+.subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    z-index: 1;
+}
+
+.subnav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+}
+
+.subnav-content a:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.subnav:hover .subnav-content {
+    display: block;
 }

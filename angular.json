@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hotel-app"
+    }
+  },
+  "defaultProject": "hotel-app",
+  "cli": {
+    "analytics": "8f87680f-daf1-495b-88ce-ef90fb816dfe"
+  }
 }

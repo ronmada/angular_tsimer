@@ -1,14 +1,28 @@
 <div class="grid-top-toolbar">
     <div class="item-c-logo">
-        <img src="/assets/img/tsimer_logo.png" alt="image"> </div>
-    <div class="item-b-toolbar">
-        <nav>
-            <a *ngFor="let itemlist of toolbarlist">
-            {{ itemlist }}
-        
-        </a>
-        </nav>
+        <img src="/assets/img/tsimer_logo.png" alt="image">
     </div>
+    <div class="item-b-toolbar" >
+        <div class="navbar" *ngFor="let itemlist of todom" >
+            
+            <div class="subnav">
+            <button class="subnavbtn" (mouseover)="randomfunc(itemlist.name)">{{ itemlist.name }} </button>
+            <div class="item-d-toolbar-info">
+            <div class="subnav-content" *ngFor="let items of itemlist.options">
+                <a> {{items}}הלוהלו</a></div>
+        </div>
+    </div>
+            
+           
+            <!-- <div class="myDIV">Hover over me.</div>
+            <div class="hide">I am shown when someone hovers over the div above.</div>-->
+
+        </div>
+    </div>
+    <div class="item-d-toolbar-info">
+        {{ this.something}}
+         <div class="subnav-content" *ngFor="let items of this.something">
+        <a> {{items}}הלוהלו</a></div></div>
     <div class="item-a-searcher">
         <div class="img-toolbar">
             <img src="/assets/img/mag_glass.png" alt="image">
