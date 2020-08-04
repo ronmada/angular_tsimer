@@ -17,9 +17,11 @@ export class TopToolbarComponent implements OnInit {
   }
 
   initToolbarList(): void {
+    console.log("OKAY")
     this.toolbarList.push(
       { id: "tsim", name: 'צימרים', options: ["לפי שעה", "לזוגות", "למשפחות", "נגיש לנכים", "עם כלבים", "לחיילים", "למגזר הדתי"] },
-      { id: "miv", name: 'מבצעים', options: ["oi","vey","גדול"]});
+      { id: "miv", name: 'מבצעים', options: ["oi", "vey", "גדול"] });
+
   }
 
   subListOnClick(itemlistoption: Toolbarlist, single_option: string) {

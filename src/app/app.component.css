@@ -1,16 +1,21 @@
 .container-grid {
-    display: grid;
+    display                 : grid;
     /* grid-template-columns: auto;
-    grid-template-rows: auto;*/
-    padding-right: 15%;
-    padding-top: 1.6em;
-    padding-left: 1em;
+    grid-template-rows      : auto;*/
+    padding-right           : 15%;
+    padding-top             : 1.6em;
+    padding-left            : 1em;
     /*  */
     /*  */
     /*  */
-    grid-template-areas: "top-toolbar";
+    grid-template-areas     : "top-toolbar";
+    /*background-image      : url("/assets/img/main_background.png");*/
 }
 
 .item-a-top-toolbar {
     grid-area: top-toolbar;
+}
+
+.background {
+    background-image: url("/assets/img/main_background.png");
 }
