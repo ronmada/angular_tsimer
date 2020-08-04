@@ -7,33 +7,43 @@ import { Toolbarlist } from "../../Models/Toolbarlist";
 })
 export class TopToolbarComponent implements OnInit {
   constructor() { }
+  toolbarList: Array<Toolbarlist> = []
+  itemListOptions: any = '';
+  mainListIn: boolean = false
+  subListIn: boolean = false
 
-  toolbarlist = ["צימרים", "מבצעים", "חוות דעת", "אודותינו", "בתי מלון", "וילות", "אטרקציות"]
-
-  something;
-  baba = new Toolbarlist();
-  applier;
-  /*
-  todom = new  Toolbarlist [
-     { todoid: "att", name: 'אטרקציות', options: ["1", "two", "3"] },
-    { id: "miv", name: 'מבצעים' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
-  ];*/
   ngOnInit(): void {
+    this.initToolbarList()
   }
 
-  randomfunc(something) {
-    console.log(something)
-    this.something = something;
+  initToolbarList(): void {
+    this.toolbarList.push(
+      { id: "tsim", name: 'צימרים', options: ["לפי שעה", "לזוגות", "למשפחות", "נגיש לנכים", "עם כלבים", "לחיילים", "למגזר הדתי"] },
+      { id: "miv", name: 'מבצעים', options: ["oi","vey","גדול"]});
   }
-  initToolbar(){
-    this.baba.
+
+  subListOnClick(itemlistoption: Toolbarlist, single_option: string) {
+  }
+
+  getMainList(options: Object): void {
+    this.isMainListIn()
+    this.itemListOptions = options;
+  }
+
+  isMainListOut(): void {
+    this.mainListIn = false
+  }
+
+  isMainListIn(): void {
+    this.mainListIn = true
+    this.subListIn = true
+  }
+
+  isSubListIn(): void {
+    this.subListIn = true
+  }
+
+  isSubListOut(): void {
+    this.subListIn = false
   }
 }

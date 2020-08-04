@@ -1,170 +1,113 @@
 .grid-top-toolbar {
     display: grid;
-    grid-template-areas: 
-    "logo toolbar searcher" 
-    ". toolbar-info .";
+    grid-template-areas:
+        "logo toolbar searcher"
+        "toolbar-info toolbar-info toolbar-info";
 }
 
 .item-a-searcher {
-    grid-area: searcher;
+    grid-area   : searcher;
     /*place-self: center;*/
-    align-self: center;
+    align-self  : center;
     justify-self: left;
+    display     : flex
 }
 
 .item-b-toolbar {
-    grid-area: toolbar;
+    grid-area : toolbar;
     place-self: center;
+    display   : flex
 }
 
 .item-c-logo {
     grid-area: logo;
 }
-.item-d-toolbar-info{
-    grid-area:toolbar-info;
+
+.item-d-toolbar-info {
+    grid-area : toolbar-info;
+    display   : flex;
+    place-self: center;
+
 }
+
 .img-toolbar img {
     padding: .5em;
 }
 
-/*
-h1 {
-    color: #369;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
-}
-
-h2,
-h3 {
-    color: #444;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-}
-
-body {
-    margin: 2em;
-}
-
-body,
-input[text],
-button {
-    color: #333;
-    font-family: Cambria, Georgia;
-}
-
-a {
-    cursor: pointer;
-    cursor: hand;
-}
-
-button {
-    font-family: Arial;
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
-}
-
-button:hover {
-    background-color: #cfd8dc;
-}
-
-button:disabled {
-    background-color: #eee;
-    color: #aaa;
-    cursor: auto;
-}
-
-
-
-*/
-
-nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-right: 10px;
-    margin-top: 10px;
-    /*display: inline-block;
-    background-color: #eee;*/
-    border-radius: 4px;
-}
-
-nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
-    /*display: block;*/
-}
-
-nav a.active {
-    color: #039be5;
-}
-
-.myDIV:hover+.hide {
-    display: block;
-    color: red;
-}
-
-.hide {
-    display: none;
-}
-
 .navbar {
-    overflow: hidden;
+    overflow        : hidden;
     background-color: #333;
-    display: inline-block;
+    display         : inline-block;
 }
 
 .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    float          : left;
+    font-size      : 16px;
+    color          : white;
+    text-align     : center;
+    padding        : 14px 16px;
     text-decoration: none;
 }
 
 .subnav {
-    float: left;
+    float   : left;
     overflow: hidden;
 }
 
 .subnav .subnavbtn {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
+    font-size       : 16px;
+    border          : none;
+    outline         : none;
+    color           : white;
+    padding         : 14px 16px;
     background-color: inherit;
-    font-family: inherit;
-    margin: 0;
+    font-family     : inherit;
+    margin          : 0;
 }
 
-.navbar a:hover, .subnav:hover .subnavbtn {
+.navbar a:hover,
+.subnav:hover .subnavbtn {
     background-color: red;
 }
 
 .subnav-content {
-    display: none;
-    position: absolute;
-    left: 0;
+    display         : none;
+    position        : absolute;
+    left            : 0;
     background-color: red;
-    width: 100%;
-    z-index: 1;
+    width           : 100%;
+    z-index         : 1;
 }
 
 .subnav-content a {
-    float: left;
-    color: white;
+    float          : left;
+    color          : white;
     text-decoration: none;
 }
 
 .subnav-content a:hover {
     background-color: #eee;
-    color: black;
+    color           : black;
 }
 
 .subnav:hover .subnav-content {
     display: block;
+}
+
+.sublist_contents {
+    cursor         : pointer;
+    color          : #1976d2;
+    text-decoration: none;
+    padding        : 2em 2em 0.3em 2em;
+    border-bottom  : 1px solid green;
+
+}
+
+.sublist_contents:hover {
+    border-bottom: 1px solid blue;
+}
+
+.displayers {
+    margin: 2rem auto 2rem auto;
+    display : flex;
 }

@@ -11,6 +11,6 @@
     grid-template-areas: "top-toolbar";
 }
 
-.item-a-top-toolarbar {
+.item-a-top-toolbar {
     grid-area: top-toolbar;
 }
