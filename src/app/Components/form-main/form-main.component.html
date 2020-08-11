@@ -1,0 +1,22 @@
+<form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
+    <div class="item-a-form-headers">
+        <button type="button" class="btn btn-info" *ngFor="let group of groups" (click)="onGroupClick(group)">
+            {{group}}
+        </button>
+        <div class="item-b-form-controls">
+            <label for="region">
+                <input class="newInput" type="text" placeholder="איזור שהייה" id="region" formControlName="Area">
+            </label>
+            <fieldset class="form-group">
+                <legend>Checkboxes</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" (click)="onClickAnimals()" value="" checked="" formControlName="Animals">
+                    בעלי חיים
+                  </label>
+                </div>
+                </fieldset>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit</button>
+</form>

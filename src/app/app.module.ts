@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopToolbarComponent } from './Components/top-toolbar/top-toolbar.component';
 import { TopToolbarListDetailsComponent } from './Components/top-toolbar-list-details/top-toolbar-list-details.component';
+import { FormMainComponent } from './Components/form-main/form-main.component';
+import {ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopToolbarComponent,
-    TopToolbarListDetailsComponent
+    TopToolbarListDetailsComponent,
+    FormMainComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

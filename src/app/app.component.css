@@ -8,12 +8,17 @@
     /*  */
     /*  */
     /*  */
-    grid-template-areas     : "top-toolbar";
+    grid-template-areas     : "top-toolbar"
+                              "form-main";
     /*background-image      : url("/assets/img/main_background.png");*/
 }
 
 .item-a-top-toolbar {
     grid-area: top-toolbar;
+}
+
+.item-b-form-main {
+    grid-area: form-main;
 }
 
 .background {
