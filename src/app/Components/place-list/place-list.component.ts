@@ -14,20 +14,19 @@ export class PlaceListComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllPlaces()
-    this.getOnePlace()
-
+    //this.getOnePlace()
   }
-  // getAllPlaces(): void {
-  //   this._placeService.getAllPlaces().subscribe(data => {
-  //     this.places = data
-  //     console.log(this.places[0]['name'])
-  //     console.log("data is:  " + data[1])
+  getAllPlaces(): void {
+    this._placeService.getAllPlaces().subscribe(data => {
+      this.places = data
+      console.log(this.places[0]['name'])
+      console.log("data is:  " + data[1])
 
-  //   }
-  //   )
-  // }
+    }
+    )
+  }
   getOnePlace(): void {
-    let id : string = '5f3bf251af5c4518951b945a'
+    let id : string = '5f3eb98b372984107d16d704'
     this._placeService.getOnePlace(id).subscribe(data => {
       this.onePlace = data
       console.log("OnePlace is:  " + this.onePlace['name'])
