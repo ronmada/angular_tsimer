@@ -21,8 +21,12 @@ button:hover {
 .newInput {
     background         : url(../../../assets/img/area_logo.png) no-repeat;
     background-position: right;
-    text-indent: 18px;
+    text-indent        : 18px;
 }
-.form-check-label{
+
+.form-check-label {
     direction: initial;
+}
+.red {
+    background-color: red;
 }

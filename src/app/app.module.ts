@@ -20,7 +20,7 @@ import { PlaceListComponent } from './Components/place-list/place-list.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
