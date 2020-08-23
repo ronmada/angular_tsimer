@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PlaceService } from "../../Services/place.service";
 @Component({
   selector: "app-place-list",
