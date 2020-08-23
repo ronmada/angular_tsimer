@@ -9,10 +9,6 @@ import { PlaceService } from "../../Services/place.service";
 export class FormMainComponent implements OnInit {
   groups: Array<string> = ["צימר", "וילה", "מלון"];
   places;
-  userTest = {
-    name: "Moshe",
-    age: 30,
-  };
   main_form = new FormGroup({
     kind_of_place: new FormControl("צימר"),
     name: new FormControl(),

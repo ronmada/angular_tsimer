@@ -10,7 +10,6 @@ export class PlaceListComponent implements OnInit {
   public places = [];
   onePlace = {};
   constructor(private _placeService: PlaceService) {}
-  @Input() name: string;
   ngOnInit(): void {
     // this.getAllPlaces()
     //this.getOnePlace()
