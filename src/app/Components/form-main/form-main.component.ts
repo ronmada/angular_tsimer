@@ -17,35 +17,29 @@ export class FormMainComponent implements OnInit {
     area: new FormControl(),
     priceMin: new FormControl(100),
     priceMax: new FormControl(1000),
-    animals: new FormControl(false),
+    animal: new FormControl(false),
   })
 
   constructor(private _placeService: PlaceService) { }
 
   ngOnInit(): void {
-    this.submitFormTester(); //temp
+    //this.submitFormTester(); //temp
   }
-
-  submitFormTester(): void {
-    this._placeService.submitFormTester().subscribe(data => {
-      this.places = data
-      console.log(this.places)
-    })
-  }
-
+  
   onGroupClick(group: string) {
     this.main_form.controls['kind_of_place'].setValue(group);
     console.log("this group : " + this.main_form.get('kind_of_place').value);
   }
 
   onClickAnimals() {
-    this.main_form.controls['animals'].setValue(!this.main_form.controls['animals'].value)
+    this.main_form.controls['animal'].setValue(!this.main_form.controls['animal'].value)
   }
 
   onSubmit() {
-    console.log(this.main_form.value)
-    console.log("Submitted: Area (form main comp): " + this.main_form.get('area').value + "animals = " + this.main_form.get('animals').value)
-    this._placeService.submitFormTester(this.main_form.get('area').value, this.main_form.get('animals').value)
+    this._placeService.getFilterdPlaces(this.main_form.value)
+    .subscribe(data => {
+      this.places = data
+      console.log(this.places)
+    })
   }
-
 }

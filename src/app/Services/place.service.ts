@@ -10,7 +10,7 @@ export class PlaceService {
   private readonly _urlHOST: string = ' https://fathomless-crag-75187.herokuapp.com/places'
 
   constructor(private http: HttpClient) { }
-
+ 
   getAllPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(this._url);
 
@@ -18,12 +18,10 @@ export class PlaceService {
   getOnePlace(id: string = '5f3eb98b372984107d16d704'): Observable<Place> {
     return this.http.get<Place>(`${this._url}/id/${id}`);
   }
-  submitFormTester(area: string = "צפון", animal: Boolean = true): Observable<Place[]> {
-    let data = {
-      area: area,
-      animal: String(animal)
-    }
-    console.log("submitting area,place from service: " + area, animal)
+  getFilterdPlaces(data : any = {defult : "defult"}): Observable<Place[]> {
+    console.log("submitting area,place from service:")
+    Object.keys(data).forEach(key => (data[key] ==  undefined) && delete data[key]) //remove nulls & unid
+    console.log(data)
     return this.http.get<Place[]>(`${this._url}/special/`, { params: data })
 
   }
