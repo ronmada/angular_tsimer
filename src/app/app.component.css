@@ -1,26 +1,27 @@
 .container-grid {
-    display                 : grid;
-    /* grid-template-columns: auto;
+  display: grid;
+  /* grid-template-columns: auto;
     grid-template-rows      : auto;*/
-    padding-right           : 15%;
-    padding-top             : 1.6em;
-    padding-left            : 1em;
-    /*  */
-    /*  */
-    /*  */
-    grid-template-areas     : "top-toolbar"
-                              "form-main";
-    /*background-image      : url("/assets/img/main_background.png");*/
+  padding-right: 15%;
+  padding-top: 1.6em;
+  padding-left: 1em;
+  /*  */
+  /*  */
+  /*  */
+  grid-template-areas:
+    "top-toolbar"
+    "form-main";
+  /*background-image      : url("/assets/img/main_background.png");*/
 }
 
 .item-a-top-toolbar {
-    grid-area: top-toolbar;
+  grid-area: top-toolbar;
 }
 
 .item-b-form-main {
-    grid-area: form-main;
+  grid-area: form-main;
 }
 
 .background {
-    background-image: url("/assets/img/main_background.png");
+  background-image: url("/assets/img/main_background.png");
 }

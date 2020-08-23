@@ -1,24 +1,43 @@
 <form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
-    <div class="item-a-form-headers">
-        <button type="button" class="btn btn-info" *ngFor="let group of groups" (click)="onGroupClick(group)"
-            [ngClass]="{'red' : this.main_form.get('kind_of_place').value==group}">
-            {{group}}
-        </button>
-        <div class="item-b-form-controls">
-            <label for="region">
-                <input class="newInput" type="text" placeholder="איזור שהייה" id="region" formControlName="area">
-            </label>
-            <fieldset class="form-group">
-                <legend>Checkboxes</legend>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" (click)="onClickAnimals()" value="" checked=""
-                            formControlName="animal">
-                        בעלי חיים
-                    </label>
-                </div>
-            </fieldset>
+  <div class="item-a-form-headers">
+    <button
+      type="button"
+      class="btn btn-info"
+      *ngFor="let group of groups"
+      (click)="onGroupClick(group)"
+      [ngClass]="{ red: this.main_form.get('kind_of_place').value == group }"
+    >
+      {{ group }}
+    </button>
+    <div class="item-b-form-controls">
+      <label for="region">
+        <input
+          class="newInput"
+          type="text"
+          placeholder="איזור שהייה"
+          id="region"
+          formControlName="area"
+        />
+      </label>
+      <fieldset class="form-group">
+        <legend>Checkboxes</legend>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              (click)="onClickAnimals()"
+              value=""
+              checked=""
+              formControlName="animal"
+            />
+            בעלי חיים
+          </label>
         </div>
+      </fieldset>
     </div>
-    <button type="submit" class="btn btn-danger">Submit</button>
+  </div>
+  <button type="submit" class="btn btn-danger">Submit</button>
 </form>
+
+<app-place-list [name]="userTest.name"></app-place-list>

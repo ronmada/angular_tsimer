@@ -1,36 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { PlaceService } from '../../Services/place.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { PlaceService } from "../../Services/place.service";
 @Component({
-  selector: 'app-place-list',
-  templateUrl: './place-list.component.html',
-  styleUrls: ['./place-list.component.css']
+  selector: "app-place-list",
+  templateUrl: "./place-list.component.html",
+  styleUrls: ["./place-list.component.css"],
 })
 export class PlaceListComponent implements OnInit {
-  id : string 
+  id: string;
   public places = [];
-  onePlace: Object = {}
-  
-  constructor(private _placeService: PlaceService) { }
-
+  onePlace = {};
+  constructor(private _placeService: PlaceService) {}
+  @Input() name: string;
   ngOnInit(): void {
     // this.getAllPlaces()
     //this.getOnePlace()
   }
   getAllPlaces(): void {
-    this._placeService.getAllPlaces().subscribe(data => {
-      this.places = data
-      console.log(this.places[0]['name'])
-      console.log("data is:  " + data[1])
-
-    }
-    )
+    this._placeService.getAllPlaces().subscribe((data) => {
+      this.places = data;
+      console.log(this.places[0]["name"]);
+      console.log("data is:  " + data[1]);
+    });
   }
   getOnePlace(): void {
-    let id : string = '5f3eb98b372984107d16d704'
-    this._placeService.getOnePlace(id).subscribe(data => {
-      this.onePlace = data
-      console.log("OnePlace is:  " + this.onePlace['name'])
-    })
-
+    const id = "5f3eb98b372984107d16d704";
+    this._placeService.getOnePlace(id).subscribe((data) => {
+      this.onePlace = data;
+      console.log("OnePlace is:  " + this.onePlace["name"]);
+    });
   }
 }

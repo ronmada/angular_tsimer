@@ -1,113 +1,111 @@
 .grid-top-toolbar {
-    display: grid;
-    grid-template-areas:
-        "logo toolbar searcher"
-        "toolbar-info toolbar-info toolbar-info";
+  display: grid;
+  grid-template-areas:
+    "logo toolbar searcher"
+    "toolbar-info toolbar-info toolbar-info";
 }
 
 .item-a-searcher {
-    grid-area   : searcher;
-    /*place-self: center;*/
-    align-self  : center;
-    justify-self: left;
-    display     : flex
+  grid-area: searcher;
+  /*place-self: center;*/
+  align-self: center;
+  justify-self: left;
+  display: flex;
 }
 
 .item-b-toolbar {
-    grid-area : toolbar;
-    place-self: center;
-    display   : flex
+  grid-area: toolbar;
+  place-self: center;
+  display: flex;
 }
 
 .item-c-logo {
-    grid-area: logo;
+  grid-area: logo;
 }
 
 .item-d-toolbar-info {
-    grid-area : toolbar-info;
-    display   : flex;
-    place-self: center;
-
+  grid-area: toolbar-info;
+  display: flex;
+  place-self: center;
 }
 
 .img-toolbar img {
-    padding: .5em;
+  padding: 0.5em;
 }
 
 .navbar {
-    overflow        : hidden;
-    background-color: #333;
-    display         : inline-block;
+  overflow: hidden;
+  background-color: #333;
+  display: inline-block;
 }
 
 .navbar a {
-    float          : left;
-    font-size      : 16px;
-    color          : white;
-    text-align     : center;
-    padding        : 14px 16px;
-    text-decoration: none;
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .subnav {
-    float   : left;
-    overflow: hidden;
+  float: left;
+  overflow: hidden;
 }
 
 .subnav .subnavbtn {
-    font-size       : 16px;
-    border          : none;
-    outline         : none;
-    color           : white;
-    padding         : 14px 16px;
-    background-color: inherit;
-    font-family     : inherit;
-    margin          : 0;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
 .navbar a:hover,
 .subnav:hover .subnavbtn {
-    background-color: red;
+  background-color: red;
 }
 
 .subnav-content {
-    display         : none;
-    position        : absolute;
-    left            : 0;
-    background-color: red;
-    width           : 100%;
-    z-index         : 1;
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  width: 100%;
+  z-index: 1;
 }
 
 .subnav-content a {
-    float          : left;
-    color          : white;
-    text-decoration: none;
+  float: left;
+  color: white;
+  text-decoration: none;
 }
 
 .subnav-content a:hover {
-    background-color: #eee;
-    color           : black;
+  background-color: #eee;
+  color: black;
 }
 
 .subnav:hover .subnav-content {
-    display: block;
+  display: block;
 }
 
 .sublist_contents {
-    cursor         : pointer;
-    color          : #1976d2;
-    text-decoration: none;
-    padding        : 2em 2em 0.3em 2em;
-    border-bottom  : 1px solid green;
-
+  cursor: pointer;
+  color: #1976d2;
+  text-decoration: none;
+  padding: 2em 2em 0.3em 2em;
+  border-bottom: 1px solid green;
 }
 
 .sublist_contents:hover {
-    border-bottom: 1px solid blue;
+  border-bottom: 1px solid blue;
 }
 
 .displayers {
-    margin : 0.3em 0.1em 0.3em 0.1em;
-    display: flex;
+  margin: 0.3em 0.1em 0.3em 0.1em;
+  display: flex;
 }

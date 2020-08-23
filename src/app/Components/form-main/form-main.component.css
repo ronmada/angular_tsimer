@@ -1,32 +1,33 @@
 .form-grid {
-    display            : grid;
-    grid-template-areas: "form-headers"
-        "form-controls";
+  display: grid;
+  grid-template-areas:
+    "form-headers"
+    "form-controls";
 }
 
 .item-a-form-headers {
-    grid-area : form-headers;
-    place-self: center;
+  grid-area: form-headers;
+  place-self: center;
 }
 
 .item-b-form-controls {
-    grid-area : form-controls;
-    place-self: center;
+  grid-area: form-controls;
+  place-self: center;
 }
 
 button:hover {
-    background-color: green;
+  background-color: green;
 }
 
 .newInput {
-    background         : url(../../../assets/img/area_logo.png) no-repeat;
-    background-position: right;
-    text-indent        : 18px;
+  background: url(../../../assets/img/area_logo.png) no-repeat;
+  background-position: right;
+  text-indent: 18px;
 }
 
 .form-check-label {
-    direction: initial;
+  direction: initial;
 }
 .red {
-    background-color: red;
+  background-color: red;
 }
