@@ -109,3 +109,6 @@
   margin: 0.3em 0.1em 0.3em 0.1em;
   display: flex;
 }
+.tsimer:hover{
+  cursor: pointer;
+}

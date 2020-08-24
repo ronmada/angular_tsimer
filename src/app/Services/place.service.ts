@@ -6,8 +6,8 @@ import { Place } from "../Models/Place";
   providedIn: "root",
 })
 export class PlaceService {
-  private readonly _url: string = "http://localhost:5000/places";
-  private readonly _urlHOST: string =
+  private readonly _url = "http://localhost:5000/places";
+  private readonly _urlHOST =
     " https://fathomless-crag-75187.herokuapp.com/places";
 
   constructor(private http: HttpClient) {}
@@ -15,9 +15,11 @@ export class PlaceService {
   getAllPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(this._url);
   }
+
   getOnePlace(id = "5f3eb98b372984107d16d704"): Observable<Place> {
     return this.http.get<Place>(`${this._url}/id/${id}`);
   }
+
   getFilterdPlaces(data = { defult: "defult" }): Observable<Place[]> {
     console.log("submitting area,place from service:");
     Object.keys(data).forEach(

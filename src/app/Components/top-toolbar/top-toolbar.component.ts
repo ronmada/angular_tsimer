@@ -1,22 +1,28 @@
 import { Component, OnInit } from "@angular/core";
-import { Toolbarlist } from "../../Models/Toolbarlist";
+import { Router } from '@angular/router';
+// import { Toolbarlist } from "../../Models/Toolbarlist";
 @Component({
   selector: "app-top-toolbar",
   templateUrl: "./top-toolbar.component.html",
   styleUrls: ["./top-toolbar.component.css"],
 })
 export class TopToolbarComponent implements OnInit {
-  toolbarList: Array<Toolbarlist> = [];
+  toolbarList = [];
+  toolbarItems: Array<{ _path: string; name: string }> = [
+    { _path: "about", name: "אודותינו" },
+    { _path: "opinions", name: "חוות דעת" },
+  ];
   itemListOptions = "";
   mainListIn = false;
   subListIn = false;
-
+  constructor(private router : Router){}
   ngOnInit(): void {
+    console.log("top-toolbar comp " + this.router.url)
     this.initToolbarList();
   }
 
   initToolbarList(): void {
-    console.log("OKAY");
+    console.log("initToolbarList");
     this.toolbarList.push(
       {
         id: "tsim",
@@ -38,9 +44,9 @@ export class TopToolbarComponent implements OnInit {
   // subListOnClick(itemlistoption: Toolbarlist, single_option: string) :void {return
   // }
 
-  getMainList(options: string): void {
+  getMainList(): void {
     this.isMainListIn();
-    this.itemListOptions = options;
+    // this.itemListOptions = options;
   }
 
   isMainListOut(): void {
@@ -59,4 +65,9 @@ export class TopToolbarComponent implements OnInit {
   isSubListOut(): void {
     this.subListIn = false;
   }
+  // onItemitemlistClick(itemlist :{ id: string; name: string } ): void {
+  //   console.log(itemlist.id)
+  //   this.router.navigate([`/${itemlist.id}`])
+  //   return;
+  // }
 }

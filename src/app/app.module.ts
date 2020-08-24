@@ -8,6 +8,8 @@ import { TopToolbarListDetailsComponent } from "./Components/top-toolbar-list-de
 import { FormMainComponent } from "./Components/form-main/form-main.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { PlaceListComponent } from "./Components/place-list/place-list.component";
+import { AboutComponent } from './Components/topToolbarcomponents/about/about.component';
+import { PlaceByAreaComponent } from './Components/place-by-area/place-by-area.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,8 @@ import { PlaceListComponent } from "./Components/place-list/place-list.component
     TopToolbarListDetailsComponent,
     FormMainComponent,
     PlaceListComponent,
+    AboutComponent,
+    PlaceByAreaComponent,
   ],
   imports: [
     BrowserModule,

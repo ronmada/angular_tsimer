@@ -1,27 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { PlaceService } from "../../Services/place.service";
+import { FormService } from "../../Services/form.service";
 @Component({
   selector: "app-form-main",
   templateUrl: "./form-main.component.html",
   styleUrls: ["./form-main.component.css"],
 })
 export class FormMainComponent implements OnInit {
-  groups: Array<string> = ["צימר", "וילה", "מלון"];
+  groups = ["צימר", "וילה", "מלון"];
   places;
-  main_form = new FormGroup({
-    kind_of_place: new FormControl("צימר"),
-    name: new FormControl(),
-    area: new FormControl(),
-    priceMin: new FormControl(100),
-    priceMax: new FormControl(1000),
-    animal: new FormControl(false),
-  });
+  formy: FormGroup;
+  main_form: FormGroup;
 
-  constructor(private _placeService: PlaceService) {}
+  constructor(
+    private _placeService: PlaceService,
+    private _formService: FormService
+  ) {}
 
   ngOnInit(): void {
     //this.submitFormTester(); //temp
+    console.log("HELLO");
+    this.main_form = this._formService.getForm();
   }
 
   onGroupClick(group: string): void {

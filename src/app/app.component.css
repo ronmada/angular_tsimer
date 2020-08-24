@@ -10,7 +10,8 @@
   /*  */
   grid-template-areas:
     "top-toolbar"
-    "form-main";
+    "form-main"
+    "place_by_area";
   /*background-image      : url("/assets/img/main_background.png");*/
 }
 
@@ -20,6 +21,9 @@
 
 .item-b-form-main {
   grid-area: form-main;
+}
+.item-c-place_by_area {
+  grid-area: place_by_area;
 }
 
 .background {
