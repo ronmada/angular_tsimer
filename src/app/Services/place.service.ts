@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Place } from "../Models/Place";
+
 @Injectable({
   providedIn: "root",
 })
@@ -26,6 +27,12 @@ export class PlaceService {
       (key) => data[key] == undefined && delete data[key]
     ); //remove nulls & unid
     console.log(data);
-    return this.http.get<Place[]>(`${this._url}/special/`, { params: data });
+    const heady = {
+      "Content-Type": "application/json",
+    };
+    return this.http.get<Place[]>(`${this._url}/special/`, {
+      params: data,
+      headers: heady,
+    });
   }
 }
