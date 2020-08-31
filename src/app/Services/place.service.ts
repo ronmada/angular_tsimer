@@ -27,12 +27,9 @@ export class PlaceService {
       (key) => data[key] == undefined && delete data[key]
     ); //remove nulls & unid
     console.log(data);
-    const heady = {
-      "Content-Type": "application/json",
-    };
     return this.http.get<Place[]>(`${this._url}/special/`, {
       params: data,
-      headers: heady,
     });
+    // return this.http.post<Place[]>(`${this._url}/special/`, data);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute ,Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-about",
@@ -7,10 +7,10 @@ import { ActivatedRoute ,Router} from "@angular/router";
   styleUrls: ["./about.component.css"],
 })
 export class AboutComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    //      
-    console.log("top-toolbar comp " + this.router.url)
+    //
+    console.log("top-toolbar comp " + this.router.url);
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { PlaceService } from "../../Services/place.service";
 import { FormService } from "../../Services/form.service";
+import { Place } from "../../Models/Place";
+
 @Component({
   selector: "app-form-main",
   templateUrl: "./form-main.component.html",
@@ -9,7 +11,7 @@ import { FormService } from "../../Services/form.service";
 })
 export class FormMainComponent implements OnInit {
   groups = ["צימר", "וילה", "מלון"];
-  places;
+  places: Place[];
   formy: FormGroup;
   main_form: FormGroup;
 
@@ -36,11 +38,17 @@ export class FormMainComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this._placeService
-      .getFilterdPlaces(this.main_form.value)
-      .subscribe((data) => {
+    this._placeService.getFilterdPlaces(this.main_form.value).subscribe(
+      (data) => {
         this.places = data;
         console.log(this.places);
-      });
+      },
+      (err) => {
+        console.log("Error on subscribe  " + err);
+      },
+      () => {
+        console.log("completed sub");
+      }
+    );
   }
 }
