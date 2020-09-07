@@ -12,20 +12,20 @@ import { Place } from "../../Models/Place";
 export class FormMainComponent implements OnInit {
   groups = ["צימר", "וילה", "מלון"];
   places: Place[];
-  formy: FormGroup;
   main_form: FormGroup;
-
+  locations: string[];
   constructor(
     private _placeService: PlaceService,
     private _formService: FormService
   ) {}
 
-  ngOnInit(): void {
-    //this.submitFormTester(); //temp
+   ngOnInit(): void {
+   this._formService.getLocations()
+
     console.log("HELLO");
     this.main_form = this._formService.getForm();
+    // this._formService.formLisenter();
   }
-
   onGroupClick(group: string): void {
     this.main_form.controls["kind_of_place"].setValue(group);
     console.log("this group : " + this.main_form.get("kind_of_place").value);

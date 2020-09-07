@@ -13,6 +13,8 @@
     "form-main"
     "place_by_area";
   /*background-image      : url("/assets/img/main_background.png");*/
+  grid-column-gap: 30px;
+  grid-row-gap: 20px;
 }
 
 .item-a-top-toolbar {
@@ -25,7 +27,19 @@
 .item-c-place_by_area {
   grid-area: place_by_area;
 }
-
+/* 
 .background {
-  background-image: url("/assets/img/main_background.png");
+  background-image: url("/assets/img/main_background.png")  ;
+  background-repeat: no-repeat;
+  width: 100%;
+} */
+.background_img {
+  background: url("/assets/img/main_background.png") no-repeat center center
+    fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  max-width: 100%;
+  max-height: 100%;
 }

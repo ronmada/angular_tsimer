@@ -10,4 +10,5 @@ export interface Place {
   animal: boolean;
   shaabaat_keep: boolean;
   price_night: boolean;
+  location : string;
 }

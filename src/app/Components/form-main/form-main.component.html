@@ -1,14 +1,5 @@
 <form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
-  <div class="item-a-form-headers">
-    <button
-      type="button"
-      class="btn btn-info"
-      *ngFor="let group of groups"
-      (click)="onGroupClick(group)"
-      [ngClass]="{ red: this.main_form.get('kind_of_place').value == group }"
-    >
-      {{ group }}
-    </button>
+  
     <div class="item-b-form-controls">
       <label for="region">
         <input
@@ -17,6 +8,15 @@
           placeholder="איזור שהייה"
           id="region"
           formControlName="area"
+        />
+      </label>
+      <label for="location">
+        <input
+          class="newInput"
+          type="text"
+          placeholder="location"
+          id="location"
+          formControlName="location"
         />
       </label>
       <fieldset class="form-group">
@@ -35,8 +35,10 @@
           </label>
         </div>
       </fieldset>
-    </div>
-  </div>
+    
+  
   <button type="submit" class="btn btn-danger">Submit</button>
+</div>
+<app-place-list [placeList]="places"></app-place-list>
 </form>
 
