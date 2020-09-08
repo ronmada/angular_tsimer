@@ -14,16 +14,18 @@ export class FormMainComponent implements OnInit {
   places: Place[];
   main_form: FormGroup;
   locations: string[];
+  filterdList: string[] = [];
   constructor(
     private _placeService: PlaceService,
     private _formService: FormService
   ) {}
 
-   ngOnInit(): void {
-   this._formService.getLocations()
-
+  ngOnInit(): void {
+    this._formService.getLocations();
     console.log("HELLO");
     this.main_form = this._formService.getForm();
+    this.filterdList = this._formService.getFilterdList();
+
     // this._formService.formLisenter();
   }
   onGroupClick(group: string): void {

@@ -4,10 +4,8 @@
     "form-headers"
     "form-controls"
     "form-results";
-    align-items: center;
-    justify-items: center;
-    
-    
+  align-items: center;
+  justify-items: center;
 }
 /* .background_img {
   background: url("/assets/img/main_background.png") no-repeat center center fixed; 

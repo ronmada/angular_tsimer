@@ -1,44 +1,44 @@
 <form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
-  
-    <div class="item-b-form-controls">
-      <label for="region">
-        <input
-          class="newInput"
-          type="text"
-          placeholder="איזור שהייה"
-          id="region"
-          formControlName="area"
-        />
-      </label>
-      <label for="location">
-        <input
-          class="newInput"
-          type="text"
-          placeholder="location"
-          id="location"
-          formControlName="location"
-        />
-      </label>
-      <fieldset class="form-group">
-        
-        <div class="form-check">
-          <label class="form-check-label">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              (click)="onClickAnimals()"
-              value=""
-              checked=""
-              formControlName="animal"
-            />
-            בעלי חיים
-          </label>
-        </div>
-      </fieldset>
-    
-  
-  <button type="submit" class="btn btn-danger">Submit</button>
-</div>
-<app-place-list [placeList]="places"></app-place-list>
-</form>
+  <div class="item-b-form-controls">
+    <label for="region">
+      <input
+        class="newInput"
+        type="text"
+        placeholder="איזור שהייה"
+        id="region"
+        formControlName="area"
+      />
+    </label>
+    <label for="location">
+      <input
+        class="newInput"
+        type="text"
+        placeholder="location"
+        id="location"
+        formControlName="location"
+      />
+    </label>
+    <fieldset class="form-group">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            (click)="onClickAnimals()"
+            value=""
+            checked=""
+            formControlName="animal"
+          />
+          בעלי חיים
+        </label>
+      </div>
+    </fieldset>
 
+    <div *ngFor="let item of filterdList">{{ item }}</div>
+
+    <button type="submit" class="btn btn-danger">Submit</button>
+  </div>
+  <div class="item-c-form-results">
+    <app-place-list [placeList]="places"></app-place-list>
+  </div>
+</form>
