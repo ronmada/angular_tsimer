@@ -21,67 +21,54 @@ export class FormService {
     animal: new FormControl(false),
     location: new FormControl(null),
   });
-  locationObjss = {
-    country_name: <string[]>[],
-    city_name: <string[]>[],
-  };
-  location_value: string;
-  locationList: Array<string>;
-  filteredList: string[] = [];
+
   merged_locations: string[];
+
   getForm(): FormGroup {
     return this.main_form;
   }
-  defineLocationArray(): void {
-    for (let x = 0; x < this.locationList.length; x++) {
-      this.locationObjss.city_name.push(
-        this.locationList[x].split(",")[0].trim()
-      );
-      this.locationObjss.country_name.push(
-        this.locationList[x].split(",")[1].trim()
-      );
+
+  defineLocationArray(locationList: string[]): string[] {
+    const locationObjss = {
+      country_name: <string[]>[],
+      city_name: <string[]>[],
+    };
+    locationList.forEach((item) => {
+      locationObjss.city_name.push(item.split(",")[0].trim());
+      locationObjss.country_name.push(item.split(",")[1].trim());
+    });
+    for (const [key, value] of Object.entries(locationObjss)) {
+      locationObjss[key] = [...new Set(value)].sort();
     }
-    this.locationObjss.city_name = [
-      ...new Set(this.locationObjss.city_name),
-    ].sort();
-    this.locationObjss.country_name = [
-      ...new Set(this.locationObjss.country_name),
-    ].sort();
-    this.merged_locations = this.locationObjss.country_name.concat(
-      this.locationObjss.city_name
-    );
+    const merged_locations = [
+      ...locationObjss.country_name,
+      ...locationObjss.city_name,
+    ];
+    console.log("merged locations", merged_locations);
+    return merged_locations;
   }
-  formLisenter(): void {
-    this.defineLocationArray();
-    this.main_form
-      .get("location")
-      .valueChanges.subscribe((input_value: string) => {
-        console.log("location value changed");
-        this.location_value = input_value;
-        console.log(input_value);
-        const list = this.merged_locations.filter((item) => {
-          if (input_value == "") return;
-          return item.toLowerCase().startsWith(input_value.toLowerCase());
+
+  checkPossibleLocations(input_value: string): string[] {
+    console.log("location value changed");
+    console.log(input_value);
+    const list = this.merged_locations.filter((item) => {
+      if (input_value == "") return;
+      return item.toLowerCase().startsWith(input_value.toLowerCase());
+    });
+    return list;
+  }
+
+  getLocations(): Promise<unknown> {
+    return new Promise((resolve) => {
+      console.log("getting all possible locations");
+      this.http
+        .get<string[]>(`${this._url}/locations/`)
+        .subscribe((locationList) => {
+          console.log("LOCATION LIST ");
+          console.log(locationList);
+          this.merged_locations = this.defineLocationArray(locationList);
+          resolve();
         });
-        this.setFilterdList(list)
-      });
-  }
-  setFilterdList(filteredList : string[]) : void {
-    this.filteredList = filteredList
-    console.log(this.filteredList);
-  }
-   getLocations(): void {
-    console.log("getting all possible locations");
-    this.http
-      .get<string[]>(`${this._url}/locations/`)
-      .subscribe((locationList) => {
-        this.locationList = locationList;
-        console.log("LOCATION LIST ");
-        console.log(this.locationList);
-        this.formLisenter();
-      });
-  }
-  getFilterdList(): string[] {
-    return this.filteredList;
+    });
   }
 }

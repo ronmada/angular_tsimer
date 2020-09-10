@@ -17,14 +17,27 @@ export class FormMainComponent implements OnInit {
   filterdList: string[] = [];
   constructor(
     private _placeService: PlaceService,
-    private _formService: FormService
+    public _formService: FormService
   ) {}
 
   ngOnInit(): void {
-    this._formService.getLocations();
-    console.log("HELLO");
     this.main_form = this._formService.getForm();
-    this.filterdList = this._formService.getFilterdList();
+    this._formService.getLocations().then(() => {
+      this.main_form.get("location").valueChanges.subscribe((item) => {
+        this.filterdList = this._formService.checkPossibleLocations(item);
+        console.log("29" , this.filterdList);
+      });
+
+
+      // this.filterdList = this._formService.formLisenter();
+      // console.log("HELLO");
+      // // this.filterdList = this._formService.getFilterdList();
+      // console.log("COMPO", this.filterdList);
+    });
+    // this.main_form.get("location").valueChanges.subscribe((item) => {
+    //   this.filterdList = this._formService.checkPossibleLocations(item);
+    //   console.log("33" + this.filterdList);
+    // });
 
     // this._formService.formLisenter();
   }
