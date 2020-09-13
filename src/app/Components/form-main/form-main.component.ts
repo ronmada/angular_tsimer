@@ -10,36 +10,37 @@ import { Place } from "../../Models/Place";
   styleUrls: ["./form-main.component.css"],
 })
 export class FormMainComponent implements OnInit {
-  groups = ["צימר", "וילה", "מלון"];
   places: Place[];
-  main_form: FormGroup;
+  main_form: FormGroup = this._formService.main_form;
   locations: string[];
-  filterdList: string[] = [];
+  filterdList: string[];
+  possibleLocations: string[] = [];
   constructor(
     private _placeService: PlaceService,
     public _formService: FormService
   ) {}
+  getPossibleLocations(): void {
+    console.log("started getPossibleLocations");
+    this._formService.getLocations().then((possibleLocations) => {
+      this.filterdList = possibleLocations;
+      console.log("array", possibleLocations);
+      this.possibleLocations = [...possibleLocations];
+    });
+  }
+  listenToInput(): void {
+    console.log("I AM AT listenToInput");
+    this.main_form.get("location").valueChanges.subscribe((input) => {
+      this.filterdList = this._formService.checkPossibleLocations(
+        input,
+        this.possibleLocations
+      );
+      console.log("filterd list : ", this.filterdList);
+    });
+  }
 
   ngOnInit(): void {
-    this.main_form = this._formService.getForm();
-    this._formService.getLocations().then(() => {
-      this.main_form.get("location").valueChanges.subscribe((item) => {
-        this.filterdList = this._formService.checkPossibleLocations(item);
-        console.log("29" , this.filterdList);
-      });
-
-
-      // this.filterdList = this._formService.formLisenter();
-      // console.log("HELLO");
-      // // this.filterdList = this._formService.getFilterdList();
-      // console.log("COMPO", this.filterdList);
-    });
-    // this.main_form.get("location").valueChanges.subscribe((item) => {
-    //   this.filterdList = this._formService.checkPossibleLocations(item);
-    //   console.log("33" + this.filterdList);
-    // });
-
-    // this._formService.formLisenter();
+    this.getPossibleLocations();
+    this.listenToInput();
   }
   onGroupClick(group: string): void {
     this.main_form.controls["kind_of_place"].setValue(group);

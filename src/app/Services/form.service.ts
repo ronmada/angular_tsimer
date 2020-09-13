@@ -16,10 +16,10 @@ export class FormService {
     kind_of_place: new FormControl("villa"),
     name: new FormControl(),
     area: new FormControl("negev"),
-    priceMin: new FormControl(100),
-    priceMax: new FormControl(1000),
+    // priceMin: new FormControl(),
+    // priceMax: new FormControl(),
     animal: new FormControl(false),
-    location: new FormControl(null),
+    location: new FormControl(),
   });
 
   merged_locations: string[];
@@ -48,17 +48,30 @@ export class FormService {
     return merged_locations;
   }
 
-  checkPossibleLocations(input_value: string): string[] {
+  checkPossibleLocations(input_value: string , merged_locations : string[]): string[] {
     console.log("location value changed");
     console.log(input_value);
-    const list = this.merged_locations.filter((item) => {
+    const list = merged_locations.filter((item) => {
       if (input_value == "") return;
       return item.toLowerCase().startsWith(input_value.toLowerCase());
     });
     return list;
   }
 
-  getLocations(): Promise<unknown> {
+  // getLocations(): Promise<unknown> {
+  //   return new Promise((resolve) => {
+  //     console.log("getting all possible locations");
+  //     this.http
+  //       .get<string[]>(`${this._url}/locations/`)
+  //       .subscribe((locationList) => {
+  //         console.log("LOCATION LIST ");
+  //         console.log(locationList);
+  //         this.merged_locations = this.defineLocationArray(locationList);
+  //         resolve();
+  //       });
+  //   });
+  // }
+  getLocations(): Promise<string[]> {
     return new Promise((resolve) => {
       console.log("getting all possible locations");
       this.http
@@ -66,9 +79,16 @@ export class FormService {
         .subscribe((locationList) => {
           console.log("LOCATION LIST ");
           console.log(locationList);
-          this.merged_locations = this.defineLocationArray(locationList);
-          resolve();
+          const mergedLocations = this.defineLocationArray(locationList)
+          resolve(mergedLocations);
+          // this.merged_locations = this.defineLocationArray(locationList);
+          // merged = this.merged_locations;
+          // console.log("22222");
+          // resolve(merged);
         });
     });
+  }
+  formAutoComplete() : void{
+    return
   }
 }

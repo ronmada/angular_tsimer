@@ -36,8 +36,22 @@
 
     <button type="submit" class="btn btn-danger">Submit</button>
   </div>
-  <div *ngFor="let item of filterdList">{{ item }}</div>
+  <!-- <div *ngFor="let item of filterdList">{{ item }}</div> -->
   <div class="item-c-form-results">
     <app-place-list [placeList]="places"></app-place-list>
   </div>
+
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Start typing a place:Country/city"
+           aria-label="Location"
+           matInput
+           formControlName="location"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filterdList" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 </form>

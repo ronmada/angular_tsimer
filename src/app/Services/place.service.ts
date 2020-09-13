@@ -23,9 +23,9 @@ export class PlaceService {
 
   getFilterdPlaces(data = { defult: "defult" }): Observable<Place[]> {
     console.log("submitting area,place from service:");
-    Object.keys(data).forEach(
-      (key) => data[key] == undefined && delete data[key]
-    ); //remove nulls & unid
+    Object.keys(data).forEach((key) => {
+      if (data[key] === null || data[key] === "") delete data[key];
+    }); //remove nulls & unid
     console.log(data);
     return this.http.get<Place[]>(`${this._url}/special/`, {
       params: data,
