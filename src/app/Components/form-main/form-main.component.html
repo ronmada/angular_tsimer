@@ -49,8 +49,8 @@
            formControlName="location"
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filterdList" [value]="option">
-        {{option}}
+      <mat-option *ngFor="let locationsObs of (locationsObs$ | async)" [value]="locationsObs">
+        {{locationsObs}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

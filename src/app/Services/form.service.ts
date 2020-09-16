@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { debounceTime, switchMap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -48,7 +50,10 @@ export class FormService {
     return merged_locations;
   }
 
-  checkPossibleLocations(input_value: string , merged_locations : string[]): string[] {
+  checkPossibleLocations(
+    input_value: string,
+    merged_locations: string[]
+  ): string[] {
     console.log("location value changed");
     console.log(input_value);
     const list = merged_locations.filter((item) => {
@@ -71,6 +76,15 @@ export class FormService {
   //       });
   //   });
   // }
+  getInputs(input: Observable<string>): Observable<string[]> {
+    return input.pipe(
+      debounceTime(1000),
+      switchMap((v) => this.requestToServer(v))
+    );
+  }
+  requestToServer(inputString: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this._url}/locations2/${inputString}`);
+  }
   getLocations(): Promise<string[]> {
     return new Promise((resolve) => {
       console.log("getting all possible locations");
@@ -79,7 +93,7 @@ export class FormService {
         .subscribe((locationList) => {
           console.log("LOCATION LIST ");
           console.log(locationList);
-          const mergedLocations = this.defineLocationArray(locationList)
+          const mergedLocations = this.defineLocationArray(locationList);
           resolve(mergedLocations);
           // this.merged_locations = this.defineLocationArray(locationList);
           // merged = this.merged_locations;
@@ -88,7 +102,7 @@ export class FormService {
         });
     });
   }
-  formAutoComplete() : void{
-    return
+  formAutoComplete(): void {
+    return;
   }
 }

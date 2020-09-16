@@ -3,6 +3,7 @@ import { FormGroup } from "@angular/forms";
 import { PlaceService } from "../../Services/place.service";
 import { FormService } from "../../Services/form.service";
 import { Place } from "../../Models/Place";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-form-main",
@@ -15,32 +16,39 @@ export class FormMainComponent implements OnInit {
   locations: string[];
   filterdList: string[];
   possibleLocations: string[] = [];
+  locationsObs$: Observable<string[]>;
   constructor(
     private _placeService: PlaceService,
     public _formService: FormService
   ) {}
   getPossibleLocations(): void {
     console.log("started getPossibleLocations");
-    this._formService.getLocations().then((possibleLocations) => {
-      this.filterdList = possibleLocations;
-      console.log("array", possibleLocations);
-      this.possibleLocations = [...possibleLocations];
-    });
+    // this._formService.getLocations().then((possibleLocations) => {
+    //   this.filterdList = possibleLocations;
+    //   console.log("array", possibleLocations);
+    //   this.possibleLocations = [...possibleLocations];
+    // });
   }
-  listenToInput(): void {
-    console.log("I AM AT listenToInput");
-    this.main_form.get("location").valueChanges.subscribe((input) => {
-      this.filterdList = this._formService.checkPossibleLocations(
-        input,
-        this.possibleLocations
-      );
-      console.log("filterd list : ", this.filterdList);
-    });
+  // listenToInput(): void {
+  //   console.log("I AM AT listenToInput");
+  //   this.main_form.get("location").valueChanges.subscribe((input) => {
+  //     this.filterdList = this._formService.checkPossibleLocations(
+  //       input,
+  //       this.possibleLocations
+  //     );
+  //     console.log("filterd list : ", this.filterdList);
+  //   });
+  // }
+  listenToInput(): Observable<string[]> {
+    // let crazy : Observable<string> = undefined
+    return this._formService.getInputs(
+      this.main_form.get("location").valueChanges
+    );
+    // this.locationsObs$.subscribe(v=>console.log(v))
   }
-
   ngOnInit(): void {
     this.getPossibleLocations();
-    this.listenToInput();
+    this.locationsObs$ = this.listenToInput();
   }
   onGroupClick(group: string): void {
     this.main_form.controls["kind_of_place"].setValue(group);
