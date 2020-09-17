@@ -1,9 +1,9 @@
 .form-grid {
   display: grid;
   grid-template-areas:
-    "form-headers"
-    "form-controls"
-    "form-results";
+    'form-headers'
+    'form-controls'
+    'form-results';
   align-items: center;
   justify-items: center;
 }

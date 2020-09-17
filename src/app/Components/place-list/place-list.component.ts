@@ -1,17 +1,18 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { PlaceService } from "../../Services/place.service";
-import { Place } from "../../Models/Place";
+import { Component, OnInit, Input } from '@angular/core'
+import { PlaceService } from '../../Services/place.service'
+import { Place } from '../../Models/Place'
+import { Observable } from 'rxjs'
 
 @Component({
-  selector: "app-place-list",
-  templateUrl: "./place-list.component.html",
-  styleUrls: ["./place-list.component.css"],
+  selector: 'app-place-list',
+  templateUrl: './place-list.component.html',
+  styleUrls: ['./place-list.component.css'],
 })
 export class PlaceListComponent implements OnInit {
   // id: string;
   // public places = [];
   // onePlace = {};
-  @Input() placeList : Place[]
+  @Input() placeList$: Observable<Place[]>
   constructor(private _placeService: PlaceService) {}
   ngOnInit(): void {
     // this.getAllPlaces()

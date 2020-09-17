@@ -1,5 +1,4 @@
-
-<div *ngFor="let place of placeList">
-    <div class="AB">{{ place.name}}</div>
-    <div class="CD">{{place.score_avg}}</div>
+<div *ngFor="let place of placeList$ | async">
+  <div class="AB">{{ place.name }}</div>
+  <div class="CD">{{ place.score_avg }}</div>
 </div>
