@@ -3,17 +3,21 @@ import { FormGroup, FormControl } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { debounceTime, switchMap, filter, share } from 'rxjs/operators'
+import { environment } from './../../environments/environment'
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormService {
-  constructor(private http: HttpClient) {}
+  private _url: string
 
-  private readonly _url = 'http://localhost:5000/places'
-  private readonly _urlHOST =
-    ' https://fathomless-crag-75187.herokuapp.com/places'
-
+  constructor(private http: HttpClient) {
+    this._url = environment._url
+  }
+  
+  // private readonly _url = 'http://localhost:5000/places'
+  // private readonly _urlHOST =
+  //   ' https://fathomless-crag-75187.herokuapp.com/places'
   main_form = new FormGroup({
     kind_of_place: new FormControl(),
     name: new FormControl(),
@@ -91,7 +95,7 @@ export class FormService {
     console.log(inputString)
     return this.http.get<string[]>(`${this._url}/locations2/${inputString}`)
   }
-  
+
   getLocations(): Promise<string[]> {
     return new Promise((resolve) => {
       console.log('getting all possible locations')

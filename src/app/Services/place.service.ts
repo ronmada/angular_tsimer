@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { Place } from '../Models/Place'
+import { environment } from './../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class PlaceService {
-  private readonly _url = 'http://localhost:5000/places'
-  private readonly _urlHOST =
-    ' https://fathomless-crag-75187.herokuapp.com/places'
+  private  _url : string
+  // private readonly _url = 'http://localhost:5000/places'
+  // private readonly _urlHOST =
+  //   'https://fathomless-crag-75187.herokuapp.com/places'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this._url = environment._url
+  }
 
   getAllPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(this._url)
