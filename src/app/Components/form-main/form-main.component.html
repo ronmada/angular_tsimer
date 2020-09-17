@@ -1,6 +1,6 @@
 <form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
   <div class="item-b-form-controls">
-    <label for="region">
+    <!-- <label for="region">
       <input
         class="newInput"
         type="text"
@@ -17,7 +17,7 @@
         id="location"
         formControlName="location"
       />
-    </label>
+    </label> -->
     <fieldset class="form-group">
       <div class="form-check">
         <label class="form-check-label">
@@ -54,7 +54,6 @@
       <mat-option
         *ngFor="let locationsObs of locationsObs$ | async"
         [value]="locationsObs"
-        
       >
         {{ locationsObs }}
       </mat-option>
