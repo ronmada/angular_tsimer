@@ -36,7 +36,6 @@
 
         <button type="submit" class="btn btn-danger">Submit</button>
     </div>
-    <!-- <div *ngFor="let item of filterdList">{{ item }}</div> -->
     <div class="item-c-form-results">
         <app-place-list [placeList$]="places$"></app-place-list>
     </div>
@@ -59,12 +58,4 @@
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
-    <div *ngIf="(places$ | async) === null">
-        <h1>no results</h1>
-    </div>
-    <!-- <div *ngFor="let hotelList of hotelList$ | async">
-  
-      {{ hotelList.name }}
-    </div> -->
-    <!-- {{country}} -->
 </form>

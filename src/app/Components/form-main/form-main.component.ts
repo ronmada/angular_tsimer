@@ -4,7 +4,7 @@ import { PlaceService } from '../../Services/place.service';
 import { FormService } from '../../Services/form.service';
 import { Place } from '../../Models/Place';
 import { Observable } from 'rxjs';
-import { tap, share } from 'rxjs/operators';
+import { LocationService } from '../../Services/location.service';
 
 @Component({
     selector: 'app-form-main',
@@ -14,22 +14,20 @@ import { tap, share } from 'rxjs/operators';
 export class FormMainComponent implements OnInit {
     places$: Observable<Place[]>;
     main_form: FormGroup = this._formService.main_form;
-    locations: string[];
-    filterdList: string[];
-    possibleLocations: string[] = [];
     locationsObs$: Observable<string[]>;
-    hotelList$: Observable<Place[]>;
 
     constructor(
         private _placeService: PlaceService,
-        private _formService: FormService
+        private _formService: FormService,
+        private _locationService: LocationService
     ) {}
 
     ngOnInit(): void {
         this.locationsObs$ = this.listenToInput();
     }
+
     listenToInput(): Observable<string[]> {
-        return this._formService.getInputs(
+        return this._locationService.locationInputObs(
             this.main_form.get('location').valueChanges
         );
     }
@@ -49,9 +47,6 @@ export class FormMainComponent implements OnInit {
 
     onSubmit(): void {
         const formReady = this._formService.prepareForm(this.main_form.value);
-        this.places$ = this._placeService.getFilterdPlaces(formReady).pipe(
-            tap((v) => console.log(v)),
-            share()
-        );
+        this.places$ = this._placeService.getFilterdPlaces(formReady);
     }
 }

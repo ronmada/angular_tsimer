@@ -26,7 +26,7 @@ export class PlaceService {
         console.log('clicked on submit, this is the filter');
         console.log(data);
         return this.http
-            .get<Place[]>(`${this._url}/special/`, {
+            .get<Place[]>(`${this._url}/places/`, {
                 params: data,
             })
             .pipe(
