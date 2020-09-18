@@ -1,6 +1,6 @@
 <form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
-  <div class="item-b-form-controls">
-    <!-- <label for="region">
+    <div class="item-b-form-controls">
+        <!-- <label for="region">
       <input
         class="newInput"
         type="text"
@@ -18,50 +18,53 @@
         formControlName="location"
       />
     </label> -->
-    <fieldset class="form-group">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            (click)="onClickAnimals()"
-            value=""
-            checked=""
-            formControlName="animal"
-          />
-          בעלי חיים
-        </label>
-      </div>
-    </fieldset>
+        <fieldset class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        (click)="onClickAnimals()"
+                        value=""
+                        checked=""
+                        formControlName="animal"
+                    />
+                    בעלי חיים
+                </label>
+            </div>
+        </fieldset>
 
-    <button type="submit" class="btn btn-danger">Submit</button>
-  </div>
-  <!-- <div *ngFor="let item of filterdList">{{ item }}</div> -->
-  <div class="item-c-form-results">
-    <app-place-list [placeList$]="places$"></app-place-list>
-  </div>
+        <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
+    <!-- <div *ngFor="let item of filterdList">{{ item }}</div> -->
+    <div class="item-c-form-results">
+        <app-place-list [placeList$]="places$"></app-place-list>
+    </div>
 
-  <mat-form-field class="example-full-width">
-    <input
-      type="text"
-      placeholder="Start typing a place:Country/city"
-      aria-label="Location"
-      matInput
-      formControlName="location"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let locationsObs of locationsObs$ | async"
-        [value]="locationsObs"
-      >
-        {{ locationsObs }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <!-- <div *ngFor="let hotelList of hotelList$ | async">
+    <mat-form-field class="example-full-width">
+        <input
+            type="text"
+            placeholder="Start typing a place:Country/city"
+            aria-label="Location"
+            matInput
+            formControlName="location"
+            [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+                *ngFor="let locationsObs of locationsObs$ | async"
+                [value]="locationsObs"
+            >
+                {{ locationsObs }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <div *ngIf="(places$ | async) === null">
+        <h1>no results</h1>
+    </div>
+    <!-- <div *ngFor="let hotelList of hotelList$ | async">
   
       {{ hotelList.name }}
     </div> -->
-
+    <!-- {{country}} -->
 </form>
