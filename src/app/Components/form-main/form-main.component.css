@@ -1,4 +1,40 @@
-.form-grid {
+.grid-form {
+    display: grid;
+    place-items: center;
+    grid-template-areas:
+        'locationInput filters'
+        'submitButton submitButton'
+        'placesResults placesResults';
+    grid-template-columns: 3fr 1fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
+    padding: 25px;
+    grid-gap: 5px;
+    /* max-width: 25vw; */
+}
+
+.locationInput {
+    grid-area: locationInput;
+    min-width: 50%;
+    /* justify-self: stretch; */
+}
+.filters {
+    grid-area: filters;
+}
+.submitButton {
+    grid-area: submitButton;
+}
+.placesResults {
+    grid-area: placesResults;
+    justify-self: start;
+}
+mat-form-field {
+    width: 100%;
+}
+mat-option-text {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* .form-grid {
     display: grid;
     grid-template-areas:
         'form-headers'
@@ -6,7 +42,7 @@
         'form-results';
     align-items: center;
     justify-items: center;
-}
+} */
 /* .background_img {
   background: url("/assets/img/main_background.png") no-repeat center center fixed; 
   -webkit-background-size: contain;
@@ -47,7 +83,7 @@ button:hover {
 /* .btn btn-danger{
   display: inline;
 } */
-.example-form {
+/* .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
@@ -55,4 +91,4 @@ button:hover {
 
 .example-full-width {
     width: 100%;
-}
+} */

@@ -1,23 +1,26 @@
-<form class="form-grid" [formGroup]="main_form" (ngSubmit)="onSubmit()">
-    <div class="item-b-form-controls">
-        <!-- <label for="region">
-      <input
-        class="newInput"
-        type="text"
-        placeholder="איזור שהייה"
-        id="region"
-        formControlName="area"
-      />
-    </label>
-    <label for="location">
-      <input
-        class="newInput"
-        type="text"
-        placeholder="location"
-        id="location"
-        formControlName="location"
-      />
-    </label> -->
+<form class="grid-form" [formGroup]="main_form" (ngSubmit)="onSubmit()">
+    <div class="locationInput">
+        <mat-form-field>
+            <input
+                type="text"
+                placeholder="Start typing a place:Country/city"
+                aria-label="Location"
+                matInput
+                formControlName="location"
+                [matAutocomplete]="auto"
+            />
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                    *ngFor="let locationsObs of locationsObs$ | async"
+                    [value]="locationsObs"
+                >
+                    {{ locationsObs }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+
+    <div class="filters">
         <fieldset class="form-group">
             <div class="form-check">
                 <label class="form-check-label">
@@ -33,29 +36,12 @@
                 </label>
             </div>
         </fieldset>
-
+    </div>
+    <div class="submitButton">
         <button type="submit" class="btn btn-danger">Submit</button>
     </div>
-    <div class="item-c-form-results">
-        <app-place-list [placeList$]="places$"></app-place-list>
-    </div>
 
-    <mat-form-field class="example-full-width">
-        <input
-            type="text"
-            placeholder="Start typing a place:Country/city"
-            aria-label="Location"
-            matInput
-            formControlName="location"
-            [matAutocomplete]="auto"
-        />
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option
-                *ngFor="let locationsObs of locationsObs$ | async"
-                [value]="locationsObs"
-            >
-                {{ locationsObs }}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
+    <div *ngIf="places$" class="placesResults">
+        <app-place-list-info [placeList$]="places$"></app-place-list-info>
+    </div>
 </form>

@@ -32,13 +32,6 @@ export class FormMainComponent implements OnInit {
         );
     }
 
-    onGroupClick(group: string): void {
-        this.main_form.controls['kind_of_place'].setValue(group);
-        console.log(
-            'this group : ' + this.main_form.get('kind_of_place').value
-        );
-    }
-
     onClickAnimals(): void {
         this.main_form.controls['animal'].setValue(
             !this.main_form.controls['animal'].value
@@ -49,4 +42,11 @@ export class FormMainComponent implements OnInit {
         const formReady = this._formService.prepareForm(this.main_form.value);
         this.places$ = this._placeService.getFilterdPlaces(formReady);
     }
+    
+    // onGroupClick(group: string): void {
+    //     this.main_form.controls['kind_of_place'].setValue(group);
+    //     console.log(
+    //         'this group : ' + this.main_form.get('kind_of_place').value
+    //     );
+    // }
 }

@@ -1,25 +1,23 @@
-<div class="grid-top-toolbar">
-  <div class="item-c-logo">
+<div class="item-c-logo">
     <img
-      class="tsimer"
-      src="/assets/img/tsimer_logo.png"
-      alt="image"
-      routerLink=""
-      routerLinkActive="active"
+        class="tsimer"
+        src="/assets/img/tsimer_logo.png"
+        alt="image"
+        routerLink=""
+        routerLinkActive="active"
     />
-  </div>
+</div>
 
-  <div class="item-b-toolbar">
+<div class="item-b-toolbar">
     <div class="navbar" *ngFor="let itemlist of toolbarItems">
-      <div class="subnav">
-        <button
-          class="subnavbtn"
-          [routerLink]="itemlist._path"
-          routerLinkActive="active"
-        >
-          {{ itemlist.name }}
-        </button>
-      </div>
+        <div class="subnav">
+            <button
+                class="subnavbtn"
+                [routerLink]="itemlist._path"
+                routerLinkActive="active"
+            >
+                {{ itemlist.name }}
+            </button>
+        </div>
     </div>
-  </div>
 </div>

@@ -1,0 +1,35 @@
+:host {
+    display: grid;
+    place-items: center;
+    grid-template-areas:
+        'picture picture'
+        'name phone'
+        'location email'
+        'score_avg wifi';
+    outline: purple dotted 5px;
+    padding: 20px;
+    
+}
+.name {
+    grid-area: name;
+    color: green;
+}
+.score_avg {
+    grid-area: score_avg;
+    color: red;
+}
+.phone {
+    grid-area: phone;
+}
+.location {
+    grid-area: location;
+}
+.email {
+    grid-area: email;
+}
+.wifi {
+    grid-area: wifi;
+}
+.picture {
+    grid-area: picture;
+}

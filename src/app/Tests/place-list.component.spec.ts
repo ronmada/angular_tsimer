@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceListComponent } from '../Components/place-list/place-list.component';
+import { PlaceListComponent } from '../Components/place-list/place-list-info.component';
 
 describe('PlaceListComponent', () => {
   let component: PlaceListComponent;
