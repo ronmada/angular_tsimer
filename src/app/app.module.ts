@@ -17,6 +17,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,6 +39,7 @@ import { PlaceDetailsComponent } from './Components/place-details/place-details.
         MatAutocompleteModule,
         MatFormFieldModule,
         MatInputModule,
+        MatButtonModule,
     ],
     providers: [
         {

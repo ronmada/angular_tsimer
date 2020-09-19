@@ -8,7 +8,6 @@
         'score_avg wifi';
     outline: purple dotted 5px;
     padding: 20px;
-    
 }
 .name {
     grid-area: name;

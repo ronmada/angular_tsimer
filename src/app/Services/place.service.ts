@@ -9,6 +9,7 @@ import { mergeMap, share, tap } from 'rxjs/operators';
 })
 export class PlaceService {
     private _url: string;
+    places$: Observable<Place[]>;
 
     constructor(private http: HttpClient) {
         this._url = environment._url;
@@ -22,10 +23,10 @@ export class PlaceService {
     //     return this.http.get<Place>(`${this._url}/id/${id}`);
     // }
 
-    getFilterdPlaces(data: HttpParams): Observable<Place[]> {
+    getFilterdPlaces(data: HttpParams): void {
         console.log('clicked on submit, this is the filter');
         console.log(data);
-        return this.http
+        const obs = this.http
             .get<Place[]>(`${this._url}/places/`, {
                 params: data,
             })
@@ -34,6 +35,7 @@ export class PlaceService {
                 mergeMap((val) => (val.length ? of(val) : EMPTY)),
                 share()
             );
+        this.places$ = obs;
     }
 }
 // return this.http.post<Place[]>(`${this._url}/special/`, data);
