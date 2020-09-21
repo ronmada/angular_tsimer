@@ -9,6 +9,9 @@
     outline: purple dotted 5px;
     padding: 20px;
 }
+.location {
+    grid-area: location;
+}
 .name {
     grid-area: name;
     color: green;
