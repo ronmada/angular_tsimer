@@ -1,13 +1,21 @@
 :host {
     display: grid;
     place-items: center;
-    grid-template-areas:
+    /* grid-template-areas:
         'picture picture'
         'name phone'
         'location email'
-        'score_avg wifi';
+        'score_avg wifi'; */
+    grid-template-areas:
+        'score_avg . . .'
+        'picture name . . '
+        'picture email location phone'
+        'picture wifi swimming_pool .';
     outline: purple dotted 5px;
+    grid-template-rows: repeat(3, min-content);
+    /* grid-template-columns: min   max(0, 100px), repeat(auto-fit, 1fr); */
     padding: 20px;
+    /* gap: ; */
 }
 .location {
     grid-area: location;
@@ -34,4 +42,9 @@
 }
 .picture {
     grid-area: picture;
+    max-width: 100%;
+    height: auto;
+}
+.swimming_pool {
+    grid-area: swimming_pool;
 }

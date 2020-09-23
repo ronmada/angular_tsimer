@@ -1,7 +1,14 @@
 <div class="name">{{ place.name }}</div>
 <div class="score_avg">{{ place.score_avg }}</div>
 <div class="phone">{{ place.phone }}</div>
-<div class="location">{{place.location}}</div>
-<div class="picture">
-    <img [src]="[place.picture]" alt="Some Picture" />
-</div>
+<div class="location">{{ place.city }} {{ place.country }}</div>
+<div class="email">{{ place.email }}</div>
+<div class="wifi">{{ place.wifi }}</div>
+<div class="swimming_pool">{{ place.swimming_pool }}</div>
+<img
+    class="picture"
+    [src]="[place.picture]"
+    width="100"
+    height="100"
+    alt="Hotel Pic here"
+/>

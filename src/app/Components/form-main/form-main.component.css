@@ -3,7 +3,7 @@
     place-items: center;
     grid-template-areas:
         'locationInput filters'
-        'submitButton submitButton'
+        'submitButton .'
         'placesResults placesResults';
     grid-template-columns: 3fr 1fr;
     /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
@@ -22,6 +22,7 @@
 }
 .submitButton {
     grid-area: submitButton;
+    justify-self: end;
 }
 .placesResults {
     grid-area: placesResults;
