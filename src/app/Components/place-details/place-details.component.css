@@ -1,21 +1,20 @@
 :host {
     display: grid;
-    place-items: center;
-    /* grid-template-areas:
-        'picture picture'
-        'name phone'
-        'location email'
-        'score_avg wifi'; */
+    align-items: center;
     grid-template-areas:
-        'score_avg . . .'
-        'picture name . . '
-        'picture email location phone'
-        'picture wifi swimming_pool .';
-    outline: purple dotted 5px;
-    grid-template-rows: repeat(3, min-content);
-    /* grid-template-columns: min   max(0, 100px), repeat(auto-fit, 1fr); */
-    padding: 20px;
-    /* gap: ; */
+        'score_avg . . '
+        'picture name location  '
+        'picture email phone '
+        'picture features features ';
+    /* outline: purple dotted 5px; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+.features {
+    grid-area: features;
+    justify-self: start;
 }
 .location {
     grid-area: location;
@@ -26,6 +25,7 @@
 }
 .score_avg {
     grid-area: score_avg;
+    justify-self: center;
     color: red;
 }
 .phone {
@@ -37,14 +37,16 @@
 .email {
     grid-area: email;
 }
-.wifi {
-    grid-area: wifi;
-}
+
 .picture {
     grid-area: picture;
-    max-width: 100%;
-    height: auto;
+    height: 150px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
 }
-.swimming_pool {
-    grid-area: swimming_pool;
+.picture img {
+    max-height: 100px;
+    max-width: 100px;
 }

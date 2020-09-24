@@ -3,12 +3,16 @@
 <div class="phone">{{ place.phone }}</div>
 <div class="location">{{ place.city }} {{ place.country }}</div>
 <div class="email">{{ place.email }}</div>
-<div class="wifi">{{ place.wifi }}</div>
-<div class="swimming_pool">{{ place.swimming_pool }}</div>
-<img
-    class="picture"
-    [src]="[place.picture]"
-    width="100"
-    height="100"
-    alt="Hotel Pic here"
-/>
+<!-- <div class="features">
+    <div class="wifi">{{ place.wifi }}</div>
+    <div class="swimming_pool">{{ place.swimming_pool }}</div>
+</div> -->
+<div class="picture">
+    <img
+        [src]="[place.picture]"
+       
+        alt="Hotel Pic here"
+    />
+</div>
+
+<app-place-features class="features" [place]="place"> </app-place-features>

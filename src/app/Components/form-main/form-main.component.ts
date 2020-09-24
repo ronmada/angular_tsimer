@@ -15,15 +15,14 @@ export class FormMainComponent implements OnInit {
         public _placeService: PlaceService,
         private _formService: FormService,
         public _locationService: LocationService
-    ) 
-    {
+    ) {
         this.form_ = this._formService.form_;
     }
 
     ngOnInit(): void {
         this.listenToInput();
     }
- 
+
     listenToInput(): void {
         this._locationService.locationInputObs(
             this.form_.get('location').valueChanges

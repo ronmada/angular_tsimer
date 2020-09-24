@@ -1,0 +1,13 @@
+:host {
+    display: grid;
+    grid-template-areas: 'wifi swimming_pool';
+    column-gap: 20px;
+}
+
+.wifi {
+    grid-area: wifi;
+}
+
+.swimming_pool {
+    grid-area: swimming_pool;
+}

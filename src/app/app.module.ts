@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
 import { MatButtonModule } from '@angular/material/button';
+import { PlaceFeaturesComponent } from './Components/place-features/place-features.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -29,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
         OpinionsComponent,
         NotFound404PageComponent,
         PlaceDetailsComponent,
+        PlaceFeaturesComponent,
     ],
     imports: [
         BrowserModule,
