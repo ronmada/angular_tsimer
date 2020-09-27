@@ -2,34 +2,41 @@
     display: grid;
     place-items: center;
     grid-template-areas:
-        'locationInput filters'
-        'submitButton .'
-        'placesResults placesResults';
-    grid-template-columns: 3fr 1fr;
+        'locationInput submitButton filters'
+        'placesResults placesResults .';
+    grid-template-columns: min-content min-content auto;
     /* grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); */
-    padding: 25px;
-    grid-gap: 5px;
+    /* padding: 25px; */
+    /* grid-gap: 5px; */
     /* max-width: 25vw; */
+    column-gap:40px;
+    margin-bottom: 230px;
 }
-
+.grid-2nd{
+    display: grid;
+    place-items:start;
+}
 .locationInput {
     grid-area: locationInput;
-    min-width: 50%;
-    /* justify-self: stretch; */
+    /* min-width: 50%; */
+    justify-self: stretch;
 }
 .filters {
     grid-area: filters;
+    justify-self: stretch;
+    /* padding-right:50px; */
 }
 .submitButton {
     grid-area: submitButton;
-    justify-self: end;
+    justify-self: start;
 }
 .placesResults {
     grid-area: placesResults;
     justify-self: start;
 }
 mat-form-field {
-    width: 100%;
+    /* width: 100%; */
+    min-width:220px;
 }
 mat-option-text {
     padding-left: 10px;

@@ -3,7 +3,7 @@
         <mat-form-field>
             <input
                 type="text"
-                placeholder="Start typing a place:Country/city"
+                placeholder="Type a Country or a city here"
                 aria-label="Location"
                 matInput
                 formControlName="location"
@@ -32,7 +32,7 @@
                         checked=""
                         formControlName="animal"
                     />
-                    בעלי חיים
+                    1# filter
                 </label>
             </div>
         </fieldset>
@@ -40,9 +40,11 @@
     <div class="submitButton">
         <button mat-raised-button color="primary" type="submit">Submit</button>
     </div>
-    <app-place-list-info
-        *ngIf="_placeService.places$"
-        class="placesResults"
-        [placeList$]="_placeService.places$"
-    ></app-place-list-info>
+  
 </form>
+<div class="grid-2nd">
+    <app-place-list-info
+    *ngIf="_placeService.places$"
+    [placeList$]="_placeService.places$"
+    ></app-place-list-info>
+</div>

@@ -1,7 +1,5 @@
 :host {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    margin: 20px;
     /* outline: #4caf50 dotted 5px; */
 }

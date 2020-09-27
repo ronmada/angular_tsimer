@@ -3,8 +3,8 @@
   /* grid-template-columns: auto;
     grid-template-rows      : auto;*/
   padding-right: 15%;
-  padding-top: 1.6em;
-  padding-left: 1em;
+  padding-top: 2em;
+  padding-left: 5em;
   /*  */
   /*  */
   /*  */
@@ -14,7 +14,7 @@
     "place_by_area";
   /*background-image      : url("/assets/img/main_background.png");*/
   grid-column-gap: 30px;
-  grid-row-gap: 20px;
+  grid-row-gap: 50px;
 }
 
 .item-a-top-toolbar {

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TopToolbarComponent } from './Components/top-toolbar/top-toolbar.component';
 import { FormMainComponent } from './Components/form-main/form-main.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PlaceListInfoComponent } from './Components/place-list/place-list-info.component';
+import { PlaceListInfoComponent } from './Components/place-list-info/place-list-info.component';
 import { AboutComponent } from './Components/topToolbarcomponents/about/about.component';
 import { PlaceByAreaComponent } from './Components/place-by-area/place-by-area.component';
 import { OpinionsComponent } from './Components/topToolbarcomponents/opinions/opinions.component';
@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { PlaceDetailsComponent } from './Components/place-details/place-details.component';
 import { MatButtonModule } from '@angular/material/button';
 import { PlaceFeaturesComponent } from './Components/place-features/place-features.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,6 +44,8 @@ import { PlaceFeaturesComponent } from './Components/place-features/place-featur
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
+        MatToolbarModule,
+        MatIconModule,
     ],
     providers: [
         {

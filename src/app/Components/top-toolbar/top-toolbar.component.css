@@ -1,22 +1,25 @@
 :host {
     display: grid;
     grid-template-areas:
-        'logo toolbar searcher'
-        'toolbar-info toolbar-info toolbar-info';
+        'logo toolbar'
+        'toolbar-info toolbar-info';
+    grid-template-columns: min-content auto;
+    column-gap: 20px;
 }
 
-.item-a-searcher {
+/* .item-a-searcher {
     grid-area: searcher;
-    /*place-self: center;*/
     align-self: center;
     justify-self: left;
     display: flex;
+} */
+.example-spacer {
+    flex: 1 1 auto;
 }
-
 .item-b-toolbar {
     grid-area: toolbar;
-    place-self: center;
-    display: flex;
+    align-self: center;
+    width:max-content;
 }
 
 .item-c-logo {
